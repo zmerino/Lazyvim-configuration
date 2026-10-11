@@ -1,0 +1,12 @@
+# Guard against committing credentials or machine-specific files
+.env
+.env.*
+*.pem
+*.key
+*secret*
+*.local.lua
+
+# Editor/OS noise
+*.swp
+*~
+.DS_Store
