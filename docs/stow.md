@@ -76,6 +76,21 @@ stow -v -t ~ nvim
 nvim                                            # lazy.nvim installs plugins on first launch
 ```
 
+### As a submodule of my dotfiles repo
+
+This repo is also pulled into [zmerino/dotfiles](https://github.com/zmerino/dotfiles) as a git
+submodule at `modules/lazyvim`, and that repo's `bootstrap.sh` stows it for you. To do the same
+step by hand from the dotfiles checkout:
+
+```bash
+cd ~/dotfiles
+git submodule update --init modules/lazyvim
+stow -v -d modules/lazyvim -t ~ nvim            # -d points Stow at this repo's packages
+```
+
+Edits to `~/.config/nvim` land in the submodule's working tree, so commit and push them from
+`modules/lazyvim`, then commit the updated submodule pointer in the dotfiles repo.
+
 ## Day-to-day workflow
 
 Because `~/.config/nvim` is a symlink into the repo, edits made in Neovim and files LazyVim writes
